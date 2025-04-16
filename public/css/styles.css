@@ -1,0 +1,17 @@
+/* when portrait view */
+@media only screen and (orientation: portrait) {
+    /* Show hamburger menu */
+    p {
+        color: red;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    /* No hamburger menu */
+    .icon {
+        visibility: hidden;
+    }
+    p {
+        color: blue;
+    }
+}

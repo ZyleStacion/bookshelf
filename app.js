@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const router = require('./routes/router');
+app.use(express.static(__dirname + '/public'));
 
 app.set("views", path.join(__dirname, "views"));
 
