@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Z's Bookshelf</title>
+    <script src="js/script.js"></script>
+
+    <!-- Icons -->
     <script src="https://kit.fontawesome.com/79c30556be.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div id="top-section" class="top-section">
             <h1>Welcome to your Bookshelf</h1>
-            <a href="javascript:void(0);" class="icon" onclick="openHamburger()">
+            <a href="javascript:void(0);" id="hamburger" class="icon" onclick="openHamburger()">
                 <i class="fa-solid fa-bars fa-2xl" style="color: #000000;"></i>
             </a>
         </div>
@@ -19,7 +22,7 @@
     </header>
     <div id="navbar" class="navbar">
         <ul>
-            <li><a href="index" class="active">Bookshelf</a></li>
+            <li><a href="javascript:void(0)" class="active">Bookshelf</a></li>
             <li><a href="reviews">Reviews</a></li>
             <li><a href="favorites">Favourites</a></li>
         </ul>
