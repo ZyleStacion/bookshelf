@@ -4,6 +4,15 @@
     p {
         color: red;
     }
+    .navbar {
+        visibility: hidden;
+    }
+    .top-section {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
 }
 
 @media only screen and (orientation: landscape) {
@@ -14,4 +23,9 @@
     p {
         color: blue;
     }
+}
+
+header {
+    margin-left: 10px;
+    margin-right: 10px;
 }
