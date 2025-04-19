@@ -5,7 +5,11 @@
         color: red;
     }
     #close {
+        z-index: 1;
         visibility: hidden;
+    }
+    #hamburger {
+        z-index: 2;
     }
     /* TODO: Add a close button which will work as the anchor for nav elements */
     /* .close-button{
