@@ -6,7 +6,7 @@
     }
     #close {
         z-index: 1;
-        visibility: hidden;
+        /* visibility: hidden;  */
     }
     #hamburger {
         z-index: 2;
