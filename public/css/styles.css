@@ -1,21 +1,32 @@
 /* when portrait view */
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 768px) {
     /* Show hamburger menu */
     p {
         color: red;
     }
-    .navbar {
+    #close {
         visibility: hidden;
     }
-    .top-section {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-        align-items: center;
+    /* TODO: Add a close button which will work as the anchor for nav elements */
+    /* .close-button{
+        anchor-name: --closeAnchor;
+    } */
+    .navbar {
+        position: fixed;
+        /* position-anchor: --closeAnchor;  */
+        visibility: hidden;
+        /* animation: hamburgerSlide 3s; */
+    }
+
+    /* TODO: Animate slide from right to 75% of page (create layout for nav bar) */
+    @keyframes hamburgerSlide {
+        0% {
+            transform: translate(75%);
+        }
     }
 }
 
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width: 769px) {
     /* No hamburger menu */
     .icon {
         visibility: hidden;
@@ -28,6 +39,13 @@
 header {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 a.active {
