@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,22 @@
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/79c30556be.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
         <div id="top-section" class="top-section">
             <h1>Welcome to your Bookshelf</h1>
-                <div id="icon-box" class="icon-box">
-                    <a href="javascript:void(0);" id="hamburger" class="icon" onclick="openHamburger()">
-                        <i class="fa-solid fa-bars fa-2xl" style="color: #000000;"></i>
-                    </a>
-                    <a href="javascript:void(0);" id="close" class="icon" onclick="closeHamburger()">
-                        <i class="fa-solid fa-2xl" style="color: #000000;"></i>
-                    </a>
-                </div>
+            <div id="icon-box" class="icon-box">
+                <a href="javascript:void(0);" id="hamburger" class="icon" onclick="toggleHamburgerMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+                <a href="javascript:void(0);" id="close" class="icon hidden" onclick="toggleHamburgerMenu()">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
         </div>
-        <p>Use this website to log your reading progress, write reviews and key lessons you've learned for maximum retention.</p>
+        <p>Use this website to log your reading progress, write reviews and key lessons you've learned for maximum
+            retention.</p>
     </header>
     <div id="navbar" class="navbar">
         <ul>
@@ -34,4 +37,5 @@
     </div>
     <div id="bookshelf" class="bookshelf"></div>
 </body>
+
 </html>

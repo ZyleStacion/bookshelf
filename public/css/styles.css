@@ -1,25 +1,20 @@
 /* when portrait view */
 @media only screen and (max-width: 768px) {
+
     /* Show hamburger menu */
     p {
         color: red;
     }
-    #close {
-        z-index: 1;
-        /* visibility: hidden;  */
-    }
-    #hamburger {
-        z-index: 2;
-    }
-    /* TODO: Add a close button which will work as the anchor for nav elements */
-    /* .close-button{
-        anchor-name: --closeAnchor;
-    } */
+
     .navbar {
         position: fixed;
-        /* position-anchor: --closeAnchor;  */
-        visibility: hidden;
+        display: none;
         /* animation: hamburgerSlide 3s; */
+    }
+    .navbar > ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
 
     /* TODO: Animate slide from right to 75% of page (create layout for nav bar) */
@@ -28,13 +23,18 @@
             transform: translate(75%);
         }
     }
+
+    .icon-box > a {
+        text-decoration: none;
+    }
 }
 
 @media only screen and (min-width: 769px) {
     /* No hamburger menu */
     .icon {
-        visibility: hidden;
+        display: none;
     }
+
     p {
         color: blue;
     }
@@ -53,5 +53,21 @@ header {
 }
 
 a.active {
-    color: black;
+    color: gray;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+i {
+    color: #000;
+    font-size: 1.5em;
+    margin: 0 10px;
+    cursor: pointer;
 }
