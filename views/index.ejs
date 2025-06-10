@@ -25,8 +25,7 @@
                 </a>
             </div>
         </div>
-        <p>Use this website to log your reading progress, write reviews and key lessons you've learned for maximum
-            retention.</p>
+        <p>Use this website to log your reading progress, write reviews, key lessons and things you've learned.</p>
     </header>
     <div id="navbar" class="navbar">
         <ul>
@@ -35,7 +34,18 @@
             <li><a href="favorites">Favourites</a></li>
         </ul>
     </div>
-    <div id="bookshelf" class="bookshelf"></div>
+
+    <div id="bookshelf" class="bookshelf">
+        <% if (books.length > 0) { %>
+            <% books.forEach(book => { %>     
+                <section>
+                    <p><%= book.title %></p> 
+                </section>
+            <% }) %>
+        <% } else { %>
+            <p>No books available.</p>
+        <% } %>
+    </div>
 </body>
 
 </html>
