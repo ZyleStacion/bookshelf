@@ -1,12 +1,17 @@
 <%- include ('partials/header', { title }) -%>
 
 <div id="search" class="search">
-    <form>
+    <form action="/searchBook" method="GET">
         <label for = "title">Title:</label>
-        <input type="text" id="title" name ="title">
+        <input type="text" id="title" name ="title"> <br>
         <label for = "author">Author:</label>
-        <input type="text" id="title" name ="title" placeholder="Optional">
+        <input type="text" id="title" name ="title" placeholder="Optional"> <br>
+        <input type="submit" value="Submit">
     </form>
+</div>
+
+<div id="searchResults" class="searchResults" hidden>
+    <!-- Pagination live search results that change with search query -->
 </div>
 
 <%- include ('partials/footer') -%>

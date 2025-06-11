@@ -15,7 +15,7 @@ let bookList = [
   new Book('Dune', 'Frank Herbert')
 ];
 
-function retrieveBookInfo(query, type) {
+function getBookID(query, type) {
   // url = "https://openlibrary.org/search.json"
 
 }

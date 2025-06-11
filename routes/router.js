@@ -17,4 +17,9 @@ router.get("/search", function (req, res) {
     res.render("search", {title: "Search"})
 })
 
+router.get("/searchBooks", function (req, res) {
+    // Show book search details live with search updates - maybe wait every 1 second so the API doesn't ban me
+    
+})
+
 module.exports = router;
