@@ -15,6 +15,11 @@ let bookList = [
   new Book('Dune', 'Frank Herbert')
 ];
 
+function retrieveBookInfo(query, type) {
+  // url = "https://openlibrary.org/search.json"
+
+}
+
 function getBooks() {
   // TODO: Return books
   return bookList
