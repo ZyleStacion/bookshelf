@@ -1,51 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include ('partials/header', { title }) -%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Z's Bookshelf</title>
-    <script src="js/script.js"></script>
+<div id="bookshelf" class="bookshelf">
+    <% if (books.length > 0) { %>
+        <% books.forEach(book => { %>     
+            <section class = "book" id = "book">
+                <p><%= book.title %></p> 
+            </section>
+        <% }) %>
+    <% } else { %>
+        <p>No books available.</p>
+    <% } %>
+</div>
 
-    <!-- Icons -->
-    <script src="https://kit.fontawesome.com/79c30556be.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <header>
-        <div id="top-section" class="top-section">
-            <h1>Welcome to your Bookshelf</h1>
-            <div id="icon-box" class="icon-box">
-                <a href="javascript:void(0);" id="hamburger" class="icon" onclick="toggleHamburgerMenu()">
-                    <i class="fa-solid fa-bars"></i>
-                </a>
-                <a href="javascript:void(0);" id="close" class="icon hidden" onclick="toggleHamburgerMenu()">
-                    <i class="fa-solid fa-xmark"></i>
-                </a>
-            </div>
-        </div>
-        <p>Use this website to log your reading progress, write reviews, key lessons and things you've learned.</p>
-    </header>
-    <div id="navbar" class="navbar">
-        <ul>
-            <li><a href="javascript:void(0)" class="active">Bookshelf</a></li>
-            <li><a href="reviews">Reviews</a></li>
-            <li><a href="favorites">Favourites</a></li>
-        </ul>
-    </div>
-
-    <div id="bookshelf" class="bookshelf">
-        <% if (books.length > 0) { %>
-            <% books.forEach(book => { %>     
-                <section>
-                    <p><%= book.title %></p> 
-                </section>
-            <% }) %>
-        <% } else { %>
-            <p>No books available.</p>
-        <% } %>
-    </div>
-</body>
-
-</html>
+<%- include ('partials/footer') -%>
