@@ -21,10 +21,11 @@ router.get("/search", function (req, res) {
 router.get("/searchBooks", function (req, res) {
     // Show book search details live with search updates - maybe wait every 1 second so the API doesn't ban me
     const query = req.query.query
-    // const type = req.query.type
-
     // getBookID(query)
-    getBookID("hobbit")
+
+    getBookID("The Hobbit")
+    // Display the book
+
 
 })
 

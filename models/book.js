@@ -1,20 +1,19 @@
 class Book {
-    constructor(title, author) {
+    constructor(title, author, id, year) {
         this.title = title
         this.author = author
-        // year = null
-        // cover_page = null
-        // total_pages = null
-        // current_page = null
-        // id = null
+        this.id = id
+        this.year = year
     }
+
+
 }
 
-let bookList = [
-  new Book('1984', 'George Orwell'),
-  new Book('Pride and Prejudice', 'Jane Austen'),
-  new Book('Dune', 'Frank Herbert')
-];
+// let bookList = [
+//   new Book('1984', 'George Orwell'),
+//   new Book('Pride and Prejudice', 'Jane Austen'),
+//   new Book('Dune', 'Frank Herbert')
+// ];
 
 /**
  * 
@@ -23,15 +22,26 @@ let bookList = [
  * @returns Array of bookIDs
  */
 async function getBookID(query) {
-  let bookList = []
   const response = await fetch(`https://openlibrary.org/search.json?q=${query}&limit=10`);
   
-  const data = await response.json()
-  console.log(data)
+  const data = await response.json();
+
+  // All info we need is in 'docs'
+  let docs = data.docs;
+  console.log(docs);
+
+  // Create book objects for the cover IDs
+  for (let book in data) {
+    book = new Book (data.title, data.author_name, data.cover_i, data.first_publish_year);
+    // console.log("book:", Book.title)
+  }
+
+  // return data.cover_i
 }
 
-function addBook(id) {
+function addBook(bookList) {
   // Add book to mongo library
+ 
 }
 
 function getBooks() {
