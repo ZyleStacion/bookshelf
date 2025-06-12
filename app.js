@@ -7,7 +7,6 @@ const mongodbURI = process.env.MONGO_URI
 
 // Routers
 const router = require('./routes/router');
-const bookRouter = require('./routes/bookRoutes')
 
 app.use(express.static(__dirname + '/public'));
 
@@ -16,7 +15,6 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use("/", router);
-app.use("/books", bookRouter)
 
 app.listen(3000, () => {
     console.log("http://localhost:" + 3000)

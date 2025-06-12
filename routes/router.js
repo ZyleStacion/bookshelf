@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getBooks } = require('../models/book')
+const { getBooks,getBookID } = require('../models/book');
+const { query } = require('express-validator');
 
 // views
 
@@ -19,7 +20,17 @@ router.get("/search", function (req, res) {
 
 router.get("/searchBooks", function (req, res) {
     // Show book search details live with search updates - maybe wait every 1 second so the API doesn't ban me
-    
+    const query = req.query.query
+    // const type = req.query.type
+
+    // getBookID(query)
+    getBookID("hobbit")
+
+})
+
+// Need to add logic for user login validation
+router.get("/dashboard", function (req, res) {
+    res.render("dashboard");
 })
 
 module.exports = router;

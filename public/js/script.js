@@ -3,3 +3,4 @@ function toggleHamburgerMenu() {
     document.getElementById('close').classList.toggle('hidden');
     document.getElementById('navbar').classList.toggle('visible');
 }
+

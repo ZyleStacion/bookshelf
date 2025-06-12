@@ -68,8 +68,9 @@
 }
 
 header {
-    margin-left: 10px;
-    margin-right: 10px;
+    background-color: skyblue;
+    padding: 0px 10px;
+    margin-bottom: 30px;
 }
 
 .top-section {
