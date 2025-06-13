@@ -24,8 +24,9 @@ router.get("/searchBooks", function (req, res) {
     // getBookID(query)
 
     getBookID("The Hobbit")
-    // Display the book
-
+    
+    // Display the book -> js function
+    
 
 })
 
