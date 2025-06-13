@@ -28,11 +28,12 @@ async function getBookID(query) {
 
   // All info we need is in 'docs'
   let docs = data.docs;
-  console.log(docs);
 
+  // console.log(docs[0].title)
   // Create book objects for the cover IDs
-  for (let book in data) {
-    book = new Book (data.title, data.author_name, data.cover_i, data.first_publish_year);
+  for (let book in docs) {
+    let result = new Book (docs[book].title, docs[book].author_name, docs[book].cover_i, docs[book].first_publish_year);
+    console.log(result)
     // console.log("book:", Book.title)
   }
 
