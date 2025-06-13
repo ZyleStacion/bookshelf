@@ -19,9 +19,10 @@ class Book {
  * 
  * @param {string} query 
  * 
- * @returns Array of bookIDs
+ * @returns {bookList} a list of books
  */
 async function getBookID(query) {
+  let bookList = []
   const response = await fetch(`https://openlibrary.org/search.json?q=${query}&limit=10`);
   
   const data = await response.json();
@@ -30,14 +31,13 @@ async function getBookID(query) {
   let docs = data.docs;
 
   // console.log(docs[0].title)
-  // Create book objects for the cover IDs
+  // Create book objects for search results
   for (let book in docs) {
     let result = new Book (docs[book].title, docs[book].author_name, docs[book].cover_i, docs[book].first_publish_year);
-    console.log(result)
-    // console.log("book:", Book.title)
+    bookList.push(result);
   }
 
-  // return data.cover_i
+  return bookList;
 }
 
 function addBook(bookList) {

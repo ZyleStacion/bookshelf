@@ -23,10 +23,10 @@ router.get("/searchBooks", function (req, res) {
     const query = req.query.query
     // getBookID(query)
 
-    getBookID("The Hobbit")
+    let results = getBookID("The Hobbit")
     
     // Display the book -> js function
-    
+    displayResults(results)
 
 })
 
