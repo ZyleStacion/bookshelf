@@ -1,13 +1,13 @@
 <%- include ('partials/header', { title }) -%>
 
 <div id="bookshelf" class="bookshelf">
-    <% if (books.length > 0) { %>
+    <% try { %>
         <% books.forEach(book => { %>     
             <section class = "book" id = "book">
                 <p><%= book.cover %></p> 
             </section>
         <% }) %>
-    <% } else { %>
+    <% } catch (error) { %>
         <p>No books available.</p>
     <% } %>
 </div>

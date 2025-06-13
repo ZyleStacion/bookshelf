@@ -41,12 +41,11 @@ async function getBookID(query) {
 
 function addBook(bookList) {
   // Add book to mongo library
- 
 }
 
 function getBooks() {
   // TODO: Return books
-  return bookList
+  // return bookList
 }
 
 module.exports = {
