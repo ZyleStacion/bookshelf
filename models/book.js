@@ -26,17 +26,16 @@ async function getBookID(query) {
   const response = await fetch(`https://openlibrary.org/search.json?q=${query}&limit=10`);
   
   const data = await response.json();
-
   // All info we need is in 'docs'
   let docs = data.docs;
 
-  // console.log(docs[0].title)
   // Create book objects for search results
-  for (let book in docs) {
-    let result = new Book (docs[book].title, docs[book].author_name, docs[book].cover_i, docs[book].first_publish_year);
+  for (let book of docs) {
+    let result = new Book (book.title, book.author_name[0], book.cover_i, book.first_publish_year);
     bookList.push(result);
   }
 
+  console.log(bookList);
   return bookList;
 }
 /**

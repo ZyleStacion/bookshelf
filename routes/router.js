@@ -17,7 +17,7 @@ router.get("/reviews", function (req, res) {
 router.get("/search", function (req, res) {
     const query = req.query.query;
     let results = getBookID("The Hobbit");
-
+    
     res.render("search", {title: "Search", query: query, results});
 })
 
