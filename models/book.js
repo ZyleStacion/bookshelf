@@ -39,6 +39,19 @@ async function getBookID(query) {
 
   return bookList;
 }
+/**
+ * 
+ * Communicate to openLibrary API to get an image bookCover given the ID
+ * 
+ * @param {object} book
+ * 
+ * @returns {URL} bookCover 
+ */
+async function getBookCover(book) {
+  let lookup_id = book.id
+  
+  return None;
+}
 
 function addBook(bookList) {
   // Add book to mongo library

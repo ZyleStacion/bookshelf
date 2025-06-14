@@ -4,14 +4,37 @@ function toggleHamburgerMenu() {
     document.getElementById('navbar').classList.toggle('visible');
 }
 
-function displaysearchResults() {
-    // Create HTML elements
-    const searchResults = document.createElement('div');
-    const bookCard = document.createElement('div')
-    searchResults.id = "searchResults"
-    searchResults.class = "searchResults"
-    bookCard.class = "bookCard"
+// TODO: Display books in HTML
+function displaysearchResults(book) {
+    console.log("Started")
+    const resultsPane = document.getElementById("searchResults");
+    resultsPane.classList.toggle('visible')
 
-    // Fill book cards - need to get cover image first
-    bookCard.innerHTML = '';
+    // Create HTML card elements for each book
+    const bookCard = document.createElement('div');
+    bookCard.className = "bookCard";
+
+    const bookCover = document.createElement('img');
+    // Call getBookCover function?
+
+    const bookTitle = document.createElement('p');
+    bookTitle.className = "bookTitle";
+    bookTitle.textContent = book.Title;
+
+    const bookAuthor = document.createElement('p');
+    bookAuthor.className = "bookAuthor";
+    bookAuthor.textContent = book.Author;
+
+    const bookYear = document.createElement('p');
+    bookYear.className = "bookYear";
+    bookYear.textContent = book.Year;
+
+    bookCard.appendChild(bookCover);
+    bookCard.appendChild(bookTitle);
+    bookCard.appendChild(bookAuthor);
+    bookCard.appendChild(bookYear);
+
+    resultsPane.append(bookCard)
+
+    console.log("ended")
 }
