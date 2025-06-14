@@ -15,14 +15,6 @@ class Book {
 //   new Book('Dune', 'Frank Herbert')
 // ];
 
-/**
- * 
- * Communicate to openLibrary API to get an image bookCover given the ID
- * 
- * @param {object} book
- * 
- * @returns {URL} bookCover 
- */
 async function getBookCover(book) {
   let lookup_id = book.id
   
@@ -39,6 +31,5 @@ function getBooks() {
 }
 
 module.exports = {
-  getBookID,
-  getBooks
+  Book
 };

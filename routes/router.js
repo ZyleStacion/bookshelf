@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getBooks,getBookID } = require('../models/book');
+const Book = require('../models/book');
 const { query } = require('express-validator');
 
 // views
@@ -15,10 +15,7 @@ router.get("/reviews", function (req, res) {
 })
 
 router.get("/search", function (req, res) {
-    const query = req.query.query;
-    let results = getBookID("The Hobbit");
-    
-    res.render("search", {title: "Search", query: query, results});
+    res.render("search", {title: "Search"});
 })
 
 // router.get("/searchBooks", function (req, res) {

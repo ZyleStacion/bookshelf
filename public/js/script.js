@@ -2,22 +2,25 @@ console.log("JS is connected.")
 
 // Get user search
 const search = document.getElementById('query');
-search.addEventListener("keypress", function(search) {
-    let bookList = []
+search.addEventListener("keyup", async function(search) {
     const response = fetch(`https://openlibrary.org/search.json?q=${query}&limit=3`);
     
-    const data = response.json();
+    const data = await response.json();
     // All info we need is in 'docs'
     let docs = data.docs;
-  
-    // Get book object details for search results
-    for (let book of docs) {
-      let result = new Book (book.title, book.author_name[0], book.cover_i, book.first_publish_year);
-      bookList.push(result);
-    }
-  
-    console.log(bookList);
-    return bookList;
+    
+    
+    // Display the book cards in HTML
+    let bookCard = document.createElement("div");
+    search.appendChild(bookCard);
+    
+    let bookCover = document.createElement("img");
+    bookCard.appendChild(bookCover);
+    bookCover.src = 
+
+    let bookTitle = document.createTextNode("h3"); // Change later
+    bookCard.appendChild(bookTitle);
+    
 })
 
 function toggleHamburgerMenu() {
