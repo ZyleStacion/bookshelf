@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Book = require('../models/book');
+const { Book, getBooks } = require('../models/book');
 const { query } = require('express-validator');
 
 // views

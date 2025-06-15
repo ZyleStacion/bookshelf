@@ -2,24 +2,39 @@ console.log("JS is connected.")
 
 // Get user search
 const search = document.getElementById('query');
-search.addEventListener("keyup", async function(search) {
+const searchResults = document.getElementById('searchResults')
+search.addEventListener("keyup", async function (e)) {
     const response = fetch(`https://openlibrary.org/search.json?q=${query}&limit=3`);
     
     const data = await response.json();
     // All info we need is in 'docs'
     let docs = data.docs;
-    
-    
-    // Display the book cards in HTML
-    let bookCard = document.createElement("div");
-    search.appendChild(bookCard);
-    
-    let bookCover = document.createElement("img");
-    bookCard.appendChild(bookCover);
-    bookCover.src = 
+    console.log(docs);
 
-    let bookTitle = document.createTextNode("h3"); // Change later
-    bookCard.appendChild(bookTitle);
+    for (book of docs) {
+        // Display the book cards in HTML
+        let bookCard = document.createElement("div");
+        searchResults.appendChild(bookCard);
+
+        // How to get the book cover? It needs another API call
+        let bookCover = document.createElement("img");
+        bookCard.appendChild(bookCover);
+        bookCover.src = `https://covers.openlibrary.org/b/id${book.cover_i}-M.jpg`;
+
+        let bookTitle = document.createTextNode(book.title);
+        // Change styling with css
+        bookTitle.class = "bookTitle"
+        bookCard.appendChild(bookTitle);
+
+        // Might want to show up to 3 authors, join each with a comma
+        let bookAuthor = document.createTextNode(book.author_name[0]);
+        bookAuthor.class = "bookAuthor";
+        bookCard.appendChild(bookAuthor);
+
+        let bookYear = document.createTextNode(book.first_publish_year);
+        bookYear.class = "bookYear";
+        bookCard.appendChild(bookYear);
+    }
     
 })
 

@@ -31,5 +31,6 @@ function getBooks() {
 }
 
 module.exports = {
-  Book
+  Book,
+  getBooks
 };
