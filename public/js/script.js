@@ -3,44 +3,64 @@ console.log("JS is connected.")
 window.addEventListener("DOMContentLoaded", function() {
     // Get user search
     const search = document.getElementById('query');
+    const searchResults = document.getElementById('searchResults');
 
-    const searchResults = document.getElementById('searchResults')
-    console.log("search: ", search)
-    
-    search?.addEventListener("keyup", async function (query) {
-        const response = fetch(`https://openlibrary.org/search.json?q=${query}&limit=3`);
+    search?.addEventListener("keyup", function (query) { 
+        console.log(query.target.value);
         
-        const data = await response.json();
-        // All info we need is in 'docs'
-        let docs = data.docs;
-        console.log(docs);
+        // Fetch the search query, need to encode URI so that I won't get hijacked
+        const fixedSearch = encodeURI(query.target.value);
+        const searchURL = `https://openlibrary.org/search.json?q=${fixedSearch}&limit=3`;
+        console.log("search url: ", searchURL);
+        
+        async function getResults() {
+            const data = await fetch(searchURL);
+            console.log(data);
+        }
 
-        for (book of docs) {
-            // Display the book cards in HTML
-            let bookCard = document.createElement("div");
-            searchResults.appendChild(bookCard);
-
-            // How to get the book cover? It needs another API call
-            let bookCover = document.createElement("img");
-            bookCard.appendChild(bookCover);
-            bookCover.src = `https://covers.openlibrary.org/b/id${book.cover_i}-M.jpg`;
-
-            let bookTitle = document.createTextNode(book.title);
-            // Change styling with css
-            bookTitle.class = "bookTitle"
-            bookCard.appendChild(bookTitle);
-
-            // Might want to show up to 3 authors, join each with a comma
-            let bookAuthor = document.createTextNode(book.author_name[0]);
-            bookAuthor.class = "bookAuthor";
-            bookCard.appendChild(bookAuthor);
-
-            let bookYear = document.createTextNode(book.first_publish_year);
-            bookYear.class = "bookYear";
-            bookCard.appendChild(bookYear);
-        }    
+        // Promise response? Not the searchURL
+        getResults();
     })
 })
+
+//         // response returns a Promise(<pending>)
+//         const response = fetch(searchURL);
+        
+
+//         // All info we need is in 'docs'
+//         try {
+//             let docs = data.docs;
+
+//             for (book of docs) {
+//                 // Display the book cards in HTML
+//                 let bookCard = document.createElement("div");
+//                 searchResults.appendChild(bookCard);
+
+//                 // How to get the book cover? It needs another API call
+//                 let bookCover = document.createElement("img");
+//                 bookCard.appendChild(bookCover);
+//                 bookCover.src = `https://covers.openlibrary.org/b/id${book.cover_i}-M.jpg`;
+
+//                 let bookTitle = document.createTextNode(book.title);
+//                 // Change styling with css
+//                 bookTitle.class = "bookTitle"
+//                 bookCard.appendChild(bookTitle);
+
+//                 // Might want to show up to 3 authors, join each with a comma
+//                 let bookAuthor = document.createTextNode(book.author_name[0]);
+//                 bookAuthor.class = "bookAuthor";
+//                 bookCard.appendChild(bookAuthor);
+
+//                 let bookYear = document.createTextNode(book.first_publish_year);
+//                 bookYear.class = "bookYear";
+//                 bookCard.appendChild(bookYear);
+//             }
+//         }
+//         catch(err) {
+//             console.log("Invalid search: ", err);
+//         }
+//     })
+// })
 
 function toggleHamburgerMenu() {
     document.getElementById('hamburger').classList.toggle('hidden');
