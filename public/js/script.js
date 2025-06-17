@@ -15,18 +15,20 @@ window.addEventListener("DOMContentLoaded", function() {
         
         // Stagger getResults() to wait for input to complete
         async function getResults() {
-            const data = await fetch(searchURL)
-            .then(response => response.json())
-            .then(data => data.docs)
-            .then(docs => console.log(docs))
-            .catch(error => console.log(error));
+            try {
+                const response = await fetch(searchURL);
 
-            // docs is not defined
-            return docs;
+                if (!response.ok) {
+                    throw new Error("No books matching your search.");
+                }
+
+                const data = response.json();
+                return data.docs;
+            }
+            catch(error) {
+                console.error(error);
+            }
         }
-
-
-        let results = getResults();
 
         // results is not iterable
         // Display result data
