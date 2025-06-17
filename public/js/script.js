@@ -8,18 +8,52 @@ window.addEventListener("DOMContentLoaded", function() {
     search?.addEventListener("keyup", function (query) { 
         console.log(query.target.value);
         
-        // Fetch the search query, need to encode URI so that I won't get hijacked
+        // Fetch the search query, need to encode URI
         const fixedSearch = encodeURI(query.target.value);
         const searchURL = `https://openlibrary.org/search.json?q=${fixedSearch}&limit=3`;
         console.log("search url: ", searchURL);
         
+        // Stagger getResults() to wait for input to complete
         async function getResults() {
-            const data = await fetch(searchURL);
-            console.log(data);
+            const data = await fetch(searchURL)
+            .then(response => response.json())
+            .then(data => data.docs)
+            .then(docs => console.log(docs))
+            .catch(error => console.log(error));
+
+            // docs is not defined
+            return docs;
         }
 
-        // Promise response? Not the searchURL
-        getResults();
+
+        let results = getResults();
+
+        // results is not iterable
+        // Display result data
+        for (book of results) {
+            // Display the book cards in HTML
+            let bookCard = document.createElement("div");
+            searchResults.appendChild(bookCard);
+
+            // Get the book cover
+            let bookCover = document.createElement("img");
+            bookCard.appendChild(bookCover);
+            bookCover.src = `https://covers.openlibrary.org/b/id${book.cover_i}-M.jpg`;
+
+            let bookTitle = document.createTextNode(book.title);
+            // Change styling with css
+            bookTitle.class = "bookTitle"
+            bookCard.appendChild(bookTitle);
+
+            // Might want to show up to 3 authors, join each with a comma
+            let bookAuthor = document.createTextNode(book.author_name[0]);
+            bookAuthor.class = "bookAuthor";
+            bookCard.appendChild(bookAuthor);
+
+            let bookYear = document.createTextNode(book.first_publish_year);
+            bookYear.class = "bookYear";
+            bookCard.appendChild(bookYear);
+        }    
     })
 })
 
