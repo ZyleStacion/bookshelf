@@ -2,6 +2,10 @@
     --HEIGHT: 300px;
 }
 
+.top-section {
+    background-image: something; /* use unsplash api integration*/
+}
+
 /* when portrait view */
 @media only screen and (max-width: 768px) {
 
