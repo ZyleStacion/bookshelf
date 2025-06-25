@@ -20,7 +20,7 @@ function createBookCard(book) {
 
     // Might want to show up to 3 authors, join each with a comma
     let bookAuthor = document.createElement("p");
-    // Undefined?
+    // TODO: Fix undefined author
     bookAuthor.innerHTML = book.author;
     bookAuthor.class = "bookAuthor";
     bookCard.appendChild(bookAuthor);
@@ -34,20 +34,32 @@ function createBookCard(book) {
     return bookCard;
 };
 
+function delay(callback, ms) { 
+    console.log("Started")
+    var timer = 0;
+    return function() {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      callback.apply(context, args);
+    }, ms || 0);
+  };
+  console.log("Ended")
+}
+
 window.addEventListener("DOMContentLoaded", function() {
     // Get user search
     const search = document.getElementById('query');
     const searchResults = document.getElementById('searchResults');
-
-    search?.addEventListener("keyup", function (query) { 
+    
+    search?.addEventListener("keyup", delay(function (query) { 
         console.log(query.target.value);
         
         // Fetch the search query, need to encode URI
         const fixedSearch = encodeURI(query.target.value);
 
-        // BUG: not returning correct search results.
-            // TODO: Specify search query to EXCLUSIVELY book titles
-        const searchURL = `https://openlibrary.org/search.json?q=${fixedSearch}&limit=5`;
+        // Could specify search query for EXCLUSIVELY book titles (out of scope)
+        const searchURL = `https://openlibrary.org/search.json?q=${fixedSearch}&offset=0&limit=5`;
 
         // Clear searchResult child nodes (bookCards)
         if (searchResults.hasChildNodes()) {
@@ -86,7 +98,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 console.error(error);
             }
         }  
-    })
+    }), 2000);
 })
 
 function toggleHamburgerMenu() {
