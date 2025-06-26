@@ -16,6 +16,23 @@
     text-wrap: wrap;
 }
 
+.search {
+    width: 100%;
+}
+
+.searchBar {
+    width: 90%;
+    height: 45px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.searchBar::placeholder {
+    font-size: medium;
+    padding-left: 30px;
+}
+
+
 /* Mobile */
 @media only screen and (max-width: 768px) {
 
