@@ -19,11 +19,12 @@ function createBookCard(book) {
     bookTitle.className = "bookTitle";
     bookCard.appendChild(bookTitle);
 
+// Unfortunately, choosing not to show authors for now
     // Might want to show up to 3 authors, join each with a comma
-    let bookAuthor = document.createElement("p");
-    bookAuthor.innerHTML = book.author_name;
-    bookAuthor.className = "bookAuthor";
-    bookCard.appendChild(bookAuthor);
+    // let bookAuthor = document.createElement("p");
+    // bookAuthor.innerHTML = book.author_name;
+    // bookAuthor.className = "bookAuthor";
+    // bookCard.appendChild(bookAuthor);
 
     // Publish year
     let bookYear = document.createElement("p");
