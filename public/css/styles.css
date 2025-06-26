@@ -3,10 +3,20 @@
 }
 
 .bookCard {
-    border: black 1px dashed;
+    border: black 1px solid;
 }
 
-/* when portrait view */
+.bookCover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bookCard > p {
+    text-wrap: wrap;
+}
+
+/* Mobile */
 @media only screen and (max-width: 768px) {
 
     /* Show hamburger menu */
@@ -40,8 +50,14 @@
     .icon-box > a {
         text-decoration: none;
     }
+
+    .searchResults {
+        display: flex;
+        flex-flow: column wrap;
+    }
 }
 
+/* Desktop */
 @media only screen and (min-width: 769px) {
     /* No hamburger menu */
     .icon {
@@ -59,16 +75,16 @@
         width: 100%;
         display: flex;
     }
-    
-    .book {
-        padding-left: 2px;
-        padding-right: 2px;
+
+    .searchResults {
+        display: flex;
+        flex-flow: row wrap;
     }
 
-    /* Testing purpose */
-    /* p {
-        color: blue;
-    } */
+    .bookCard {
+        border-radius: 25px;
+        height: 500px;
+    }
 }
 
 header {

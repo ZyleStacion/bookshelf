@@ -11,26 +11,24 @@ function createBookCard(book) {
     bookCard.appendChild(bookCover);
     bookCover.src = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
     bookCover.alt = `${book.title} cover`;
+    bookCover.className = "bookCover";
 
     // Title
     let bookTitle = document.createElement("p");
     bookTitle.innerHTML = book.title;
-    bookTitle.class = "bookTitle";
+    bookTitle.className = "bookTitle";
     bookCard.appendChild(bookTitle);
 
     // Might want to show up to 3 authors, join each with a comma
     let bookAuthor = document.createElement("p");
-    
-    // TODO: Fix undefined author
     bookAuthor.innerHTML = book.author_name;
-    console.log("author:", book.author_name);
-    bookAuthor.class = "bookAuthor";
+    bookAuthor.className = "bookAuthor";
     bookCard.appendChild(bookAuthor);
 
     // Publish year
     let bookYear = document.createElement("p");
     bookYear.innerHTML = book.first_publish_year;
-    bookYear.class = "bookYear";
+    bookYear.className = "bookYear";
     bookCard.appendChild(bookYear);
 
     return bookCard;
