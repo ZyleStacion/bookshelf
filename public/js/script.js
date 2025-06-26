@@ -20,8 +20,10 @@ function createBookCard(book) {
 
     // Might want to show up to 3 authors, join each with a comma
     let bookAuthor = document.createElement("p");
+    
     // TODO: Fix undefined author
-    bookAuthor.innerHTML = book.author;
+    bookAuthor.innerHTML = book.author_name;
+    console.log("author:", book.author_name);
     bookAuthor.class = "bookAuthor";
     bookCard.appendChild(bookAuthor);
 
@@ -43,8 +45,8 @@ function delay(callback, ms) {
     timer = setTimeout(function () {
       callback.apply(context, args);
     }, ms || 0);
-  };
-  console.log("Ended")
+    console.log("Ended")
+    };
 }
 
 window.addEventListener("DOMContentLoaded", function() {
@@ -78,6 +80,7 @@ window.addEventListener("DOMContentLoaded", function() {
                         'User-Agent' : 'BookshelfApp (zyle.destacion@gmail.com)'
                     }
                 });
+                // TODO: Refine this
                 if (!response.ok) {
                     throw new Error("No books matching your search.");
                 }
