@@ -112,7 +112,13 @@
     }
 
     .bookTitle {
+        /* Left */
+        display: inline-block;
+    }
 
+    .bookYear {
+        display: inline-block;
+        /* Right */
     }
 }
 
