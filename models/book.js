@@ -15,37 +15,6 @@ class Book {
 //   new Book('Dune', 'Frank Herbert')
 // ];
 
-/**
- * 
- * @param {string} query 
- * 
- * @returns {bookList} a list of books
- */
-async function getBookID(query) {
-  let bookList = []
-  const response = await fetch(`https://openlibrary.org/search.json?q=${query}&limit=10`);
-  
-  const data = await response.json();
-  // All info we need is in 'docs'
-  let docs = data.docs;
-
-  // Create book objects for search results
-  for (let book of docs) {
-    let result = new Book (book.title, book.author_name[0], book.cover_i, book.first_publish_year);
-    bookList.push(result);
-  }
-
-  console.log(bookList);
-  return bookList;
-}
-/**
- * 
- * Communicate to openLibrary API to get an image bookCover given the ID
- * 
- * @param {object} book
- * 
- * @returns {URL} bookCover 
- */
 async function getBookCover(book) {
   let lookup_id = book.id
   
@@ -62,6 +31,6 @@ function getBooks() {
 }
 
 module.exports = {
-  getBookID,
+  Book,
   getBooks
 };

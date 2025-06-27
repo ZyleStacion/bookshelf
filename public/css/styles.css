@@ -2,11 +2,40 @@
     --HEIGHT: 300px;
 }
 
-.top-section {
-    background-image: something; /* use unsplash api integration*/
+.bookCard {
+    border: black 1px solid;
 }
 
-/* when portrait view */
+.bookCover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bookCard > p {
+    text-wrap: wrap;
+}
+
+.search {
+    width: 100%;
+}
+
+.searchBar {
+    width: 90%;
+    height: 45px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.searchBar::placeholder {
+    font-size: medium;
+    padding-left: 30px;
+}
+
+
+
+
+/* Mobile */
 @media only screen and (max-width: 768px) {
 
     /* Show hamburger menu */
@@ -40,8 +69,14 @@
     .icon-box > a {
         text-decoration: none;
     }
+
+    .searchResults {
+        display: flex;
+        flex-flow: column wrap;
+    }
 }
 
+/* Desktop */
 @media only screen and (min-width: 769px) {
     /* No hamburger menu */
     .icon {
@@ -59,16 +94,32 @@
         width: 100%;
         display: flex;
     }
-    
-    .book {
-        padding-left: 2px;
-        padding-right: 2px;
+
+    .searchResults {
+        display: flex;
+        flex-flow: row wrap;
     }
 
-    /* Testing purpose */
-    /* p {
-        color: blue;
-    } */
+    .bookCard {
+        height: 500px;
+        /* Width should be the size of the cover.
+            - To accomplish this, we need to use an API call to get the image cover size */
+    }
+
+    .bookDetails {
+        display: flex;
+        width: 100%;
+    }
+
+    .bookTitle {
+        /* Left */
+        display: inline-block;
+    }
+
+    .bookYear {
+        display: inline-block;
+        /* Right */
+    }
 }
 
 header {
