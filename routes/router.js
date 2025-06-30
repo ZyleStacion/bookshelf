@@ -7,7 +7,8 @@ const { query } = require('express-validator');
 
 router.get("/", (req, res) => {
     const books = getBooks();
-    res.render("index", { books, title: "Home", heading: "Welcome to your bookshelf" });
+    res.render("index", { books, title: "Home", message: "Welcome to your bookshelf" });
+    // add some logic for username greeting else GUEST
 });
 
 router.get("/reviews", function (req, res) {
@@ -15,7 +16,7 @@ router.get("/reviews", function (req, res) {
 })
 
 router.get("/search", function (req, res) {
-    res.render("search", {title: "Search"});
+    res.render("search", {title: "Search", message: "What are you reading today?"});
 })
 
 // router.get("/searchBooks", function (req, res) {
